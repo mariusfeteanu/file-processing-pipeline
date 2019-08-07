@@ -2,7 +2,7 @@ import pytest
 import pandas as pd
 import decimal as D
 
-from file_processing_pipeline.process import process_end_of_day
+from file_processing_pipeline.process import process_end_of_day, CSV, EXCEL
 
 
 INPUT_ROOT = 'test/resources/input_root'
@@ -14,7 +14,7 @@ def test_process_end_of_day_simple_csv():
     process_end_of_day(f'{INPUT_ROOT}/simple',
                        REFERENCE_ROOT,
                        f'{OUTPUT_ROOT}/simple',
-                       file_type='csv')
+                       file_type=CSV)
 
 
     errors = pd.read_csv(f'{OUTPUT_ROOT}/simple/errors/end_of_day.csv')
@@ -41,7 +41,7 @@ def test_process_end_of_day_simple_excel():
     process_end_of_day(f'{INPUT_ROOT}/excel/end_of_day.xlsx',
                        f'{INPUT_ROOT}/excel/end_of_day.xlsx',
                        f'{OUTPUT_ROOT}/excel',
-                       file_type='excel')
+                       file_type=EXCEL)
 
 
     errors = pd.read_csv(f'{OUTPUT_ROOT}/excel/errors/end_of_day.csv')
@@ -69,7 +69,7 @@ def test_process_end_of_day_big_csv():
     process_end_of_day(f'{INPUT_ROOT}/big',
                        REFERENCE_ROOT,
                        f'{OUTPUT_ROOT}/big',
-                       file_type='csv')
+                       file_type=CSV)
 
 
     errors = pd.read_csv(f'{OUTPUT_ROOT}/big/errors/end_of_day.csv')

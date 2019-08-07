@@ -5,6 +5,8 @@ from file_processing_pipeline.io import load_csv, save_parquet, save_csv, load_e
 
 
 EOD_FILE_NAME = 'end_of_day'
+CSV = 'csv'
+EXCEL = 'excel'
 
 
 def handle_input(file_type, path_root):
@@ -19,9 +21,9 @@ def handle_input(file_type, path_root):
     def handle_excel_input(data_set_name):
         return load_excel(path_root, data_set_name)
 
-    if file_type == 'csv':
+    if file_type == CSV:
         return handle_csv_input
-    elif file_type == 'excel':
+    elif file_type == EXCEL:
         return handle_excel_input
 
 

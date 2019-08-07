@@ -2,7 +2,7 @@
 
 import click
 
-from file_processing_pipeline.process import process_end_of_day
+from file_processing_pipeline.process import process_end_of_day, CSV
 
 
 @click.command()
@@ -21,7 +21,7 @@ from file_processing_pipeline.process import process_end_of_day
               required=True)
 @click.option("-t", "--file-type",
               help="The input file type (csv or excel).",
-              default='csv',
+              default=CSV,
               required=True)
 def cli(data_set,
         input_root,

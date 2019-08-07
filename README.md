@@ -32,6 +32,3 @@ make init-dev
 
 TODO:
 - string constants
-- docs
-- maybe bdd?
-- maybe yaml schema
