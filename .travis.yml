@@ -3,6 +3,7 @@ os:
 dist: xenial
 language: python
 script:
+    - make init-dev
     - make
 notifications:
   email: false
