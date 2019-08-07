@@ -1,12 +1,20 @@
 """Definitions of data types and other validations to apply to each data set."""
-
+import importlib.resources as pkg_resources
 import decimal as D
 
+import yaml
 from pandas_schema import Column, Schema
 from pandas_schema.validation import \
     CanConvertValidation, \
     InRangeValidation, \
     CustomSeriesValidation
+
+from file_processing_pipeline import schemas
+
+
+def load_raw_schema_dict(schema_name):
+    query_template = pkg_resources.read_text(schemas, f'{schema_name}.yml')
+    return yaml.safe_load(query_template)
 
 
 def not_null():
@@ -21,7 +29,7 @@ def load_schema(schema_name, reference_sets):
             return series.isin(reference_set)
         return CustomSeriesValidation(validate, f'is not a valid {reference_name}')
 
-    schemas = {
+    _schemas = {
         'simple': {
             'validation': Schema([
                 Column('a', [CanConvertValidation(int), InRangeValidation(0, 14)]),
@@ -67,4 +75,4 @@ def load_schema(schema_name, reference_sets):
             }
         }
     }
-    return schemas[schema_name]
+    return _schemas[schema_name]

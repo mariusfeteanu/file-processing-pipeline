@@ -1,9 +1,12 @@
+import pytest
+
 from file_processing_pipeline.io import load_csv, load_excel
 
 
 INPUT_ROOT = 'test/resources/input_root'
 
 
+@pytest.mark.run(order=100)
 def test_load_csv():
     df = load_csv('test/resources/simple.csv')
     assert list(df.columns) == ['a', 'b', 'c']
@@ -18,6 +21,7 @@ def test_load_csv():
     assert df.at[2, 'b'] == 'Éclair'
 
 
+@pytest.mark.run(order=100)
 def test_load_excel():
     df = load_excel(f'{INPUT_ROOT}/excel/end_of_day.xlsx', 'end_of_day')
 

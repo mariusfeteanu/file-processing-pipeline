@@ -1,9 +1,12 @@
 import decimal as D
 
+import pytest
+
 from file_processing_pipeline.validation import validate
 from file_processing_pipeline.io import load_csv
 
 
+@pytest.mark.run(order=200)
 def test_apply():
     df = load_csv('test/resources/simple.csv')
     valid_df, errors_df = validate(df, 'simple', {'singular': ('word', 'Éclair')})

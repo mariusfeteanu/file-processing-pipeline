@@ -1,0 +1,15 @@
+schema:
+  name: simple
+  fields:
+    - name: a
+      type: int64
+      validation:
+        - InRangeValidation:
+            min: 0
+            max: 14
+    - name: b
+      type: str
+      validation:
+        - reference: singular
+    - name: c
+      type: decimal

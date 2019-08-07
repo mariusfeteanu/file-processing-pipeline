@@ -10,6 +10,7 @@ OUTPUT_ROOT = 'test/resources/output_root'
 REFERENCE_ROOT = 'test/resources/reference'
 
 
+@pytest.mark.run(order=400)
 def test_process_end_of_day_simple_csv():
     process_end_of_day(f'{INPUT_ROOT}/simple',
                        REFERENCE_ROOT,
@@ -37,6 +38,7 @@ def test_process_end_of_day_simple_csv():
     type(valid.at[0, 'high']) == D.Decimal
 
 
+@pytest.mark.run(order=400)
 def test_process_end_of_day_simple_excel():
     process_end_of_day(f'{INPUT_ROOT}/excel/end_of_day.xlsx',
                        f'{INPUT_ROOT}/excel/end_of_day.xlsx',
@@ -65,6 +67,7 @@ def test_process_end_of_day_simple_excel():
 
 
 @pytest.mark.skip(reason="slow (20sec), enable if curious")
+@pytest.mark.run(order=400)
 def test_process_end_of_day_big_csv():
     process_end_of_day(f'{INPUT_ROOT}/big',
                        REFERENCE_ROOT,

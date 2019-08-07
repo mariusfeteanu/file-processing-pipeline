@@ -1,3 +1,5 @@
+import pytest
+
 from file_processing_pipeline.io import load_csv
 from file_processing_pipeline.transform import transform_end_of_day
 
@@ -9,6 +11,7 @@ COUNTRIES_PATH = REFERENCE_ROOT + 'countries.csv'
 CURRENCIES_PATH = REFERENCE_ROOT + 'currencies.csv'
 
 
+@pytest.mark.run(order=300)
 def test_transform_end_of_day_simple():
     end_of_day_raw = load_csv(RESOURCE_ROOT + 'end_of_day_simple.csv')
     company_source_id_raw = load_csv(COMPANIES_PATH)
@@ -26,6 +29,7 @@ def test_transform_end_of_day_simple():
     assert errors_end_of_day.shape[0] == 0
 
 
+@pytest.mark.run(order=300)
 def test_transform_end_of_day_error_country():
     end_of_day_raw = load_csv(RESOURCE_ROOT + 'end_of_day_error_country.csv')
     company_source_id_raw = load_csv(COMPANIES_PATH)

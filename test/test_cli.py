@@ -11,6 +11,7 @@ OUTPUT_ROOT = 'test/resources/output_root'
 REFERENCE_ROOT = 'test/resources/reference'
 
 
+@pytest.mark.run(order=500)
 def test_cli_csv():
   runner = CliRunner()
   result = runner.invoke(cli,
@@ -27,6 +28,7 @@ def test_cli_csv():
   assert valid.shape[0] == 7
 
 
+@pytest.mark.run(order=500)
 def test_cli_excel():
   runner = CliRunner()
   result = runner.invoke(cli,
@@ -44,6 +46,7 @@ def test_cli_excel():
   assert valid.shape[0] == 8
 
 
+@pytest.mark.run(order=500)
 def test_cli_no_args():
   runner = CliRunner()
   result = runner.invoke(cli, [])

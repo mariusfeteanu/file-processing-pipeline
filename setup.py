@@ -9,6 +9,7 @@ setup(
     author='Marius Feteanu',
     author_email='marius.feteanu@gmail.com',
     description='File Processing Pipeline',
+    package_data={'file_processing_pipeline': ['schemas/*']},
     entry_points = {
         'console_scripts': ['file_processing_pipeline=file_processing_pipeline.cli:main'],
     }
