@@ -31,9 +31,6 @@ def parse_validation(validation, reference_sets):
             return InRangeValidation(**config)
         elif name == 'reference':
             return validate_reference_set(config)
-    elif isinstance(validation, str):  # pragma: nocover
-        if validation == 'not_null':
-            return not_null()
 
 
 def get_all_validations(field_schema, reference_sets):
