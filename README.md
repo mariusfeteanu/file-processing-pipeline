@@ -28,4 +28,5 @@ make init-dev
 ## Misc
 
 ### How to create a big file
-(cd test/resources/; python make_big_file.py)
+
+(cd test/resources/; python make_big_file.py; wc -l input_root/big/end_of_day.csv)

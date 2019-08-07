@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+
 
 countries = pd.read_csv('reference/countries.csv',
                    header=0,
@@ -33,7 +35,17 @@ base_df['key'] = 1
 big_df = pd.merge(pd.merge(pd.merge(base_df, currencies), countries), companies).drop(['key'], axis=1)
 big_df = big_df.rename(columns={'alpha-2': 'country_code', 'AlphabeticCode': 'currency_code', 'source_id': 'company_source_id'})
 
-print(big_df.head())
+nrows = big_df.shape[0]
+big_df['open'] = np.random.randint(10, 90, nrows)/10.0
+big_df['high'] = np.random.randint(20, 150, nrows)/10.0
+big_df['low'] = np.random.randint(1, 70, nrows)/10.0
+big_df['close'] = np.random.randint(20, 100, nrows)/10.0
+big_df['volume'] = np.random.randint(100, 10000, nrows)
+big_df['P/E'] = np.random.randint(30, 300, nrows)/10.0
+big_df['EPS'] = np.random.randint(100, 10000, nrows)/10.0
+
+
+print(big_df.head(100))
 
 big_df.to_csv('input_root/big/end_of_day.csv',
               index=False,
