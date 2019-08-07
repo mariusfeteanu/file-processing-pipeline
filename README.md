@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/mariusfeteanu/file-processing-pipeline.svg?branch=master)](https://travis-ci.org/mariusfeteanu/file-processing-pipeline)
+
+
 ## Pre-requisites
 
 - [python 3.7+](https://www.python.org/downloads/)
