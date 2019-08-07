@@ -29,6 +29,3 @@ make init-dev
 
 ### How to create a big file
 (cd test/resources/; python make_big_file.py)
-
-TODO:
-- string constants
