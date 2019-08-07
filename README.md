@@ -21,7 +21,7 @@ Install dependencies for development and run time:
 make init-dev
 ```
 
-## Module diagram
+## Package diagram
 
 ![Packages diagram](docs/packages.png)
 
