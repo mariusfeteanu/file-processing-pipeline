@@ -13,14 +13,14 @@ def validate(df, schema_name, reference_sets):
         - one with errors
     """
     schema = load_schema(schema_name, reference_sets)
-    errors = schema['validation'].validate(df)
+    errors = schema.validations.validate(df)
 
     # Remove invalid rows
     error_index_labels = [error.row for error in errors]
     valid_df = df.drop(df.index[error_index_labels])
 
     # apply pandas data types to valid ones
-    valid_df = __apply_pandas_data_type(valid_df, schema['pandas_data_types'])
+    valid_df = __apply_pandas_data_type(valid_df, schema.pandas_data_types)
 
     # Create a data frame containing the errors, reasons etc.
     errors_df = __get_errors_df(errors)

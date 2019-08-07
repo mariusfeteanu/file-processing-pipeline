@@ -50,7 +50,7 @@ def get_all_validations(field_schema, reference_sets):
         yield CanConvertValidation(type_map[field_schema['type']])
 
 
-def load_schema_whatev(schema_name, reference_sets):
+def load_schema(schema_name, reference_sets):
     raw_fields_schema = load_raw_fields_schema(schema_name)
     schema = Namespace()
 
@@ -71,17 +71,3 @@ def load_schema_whatev(schema_name, reference_sets):
 
 def not_null():
     return CustomSeriesValidation(lambda series: ~series.isnull(), 'is null')
-
-
-def load_schema(schema_name, reference_sets):
-    _schemas = {
-        'simple': {
-            'validation': load_schema_whatev('simple', reference_sets).validations,
-            'pandas_data_types': load_schema_whatev('simple', reference_sets).pandas_data_types
-        },
-        'end_of_day': {
-            'validation': load_schema_whatev('end_of_day', reference_sets).validations,
-            'pandas_data_types': load_schema_whatev('end_of_day', reference_sets).pandas_data_types
-        }
-    }
-    return _schemas[schema_name]
