@@ -1,3 +1,5 @@
+"""Transforms raw data sets into validated and enriched data sets."""
+
 import pandas as pd
 
 from file_processing_pipeline.validation import validate

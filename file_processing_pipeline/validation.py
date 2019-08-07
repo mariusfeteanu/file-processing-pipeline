@@ -1,3 +1,5 @@
+"""Uses provided schemas to validate raw data sets."""
+
 import decimal as D
 
 import pandas as pd

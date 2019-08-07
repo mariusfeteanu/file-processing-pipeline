@@ -1,3 +1,6 @@
+"""Provides utilities to load and save data sets.
+Mainly thin wrappers around pandas methods."""
+
 import os
 
 import pandas as pd

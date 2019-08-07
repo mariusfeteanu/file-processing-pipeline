@@ -1,3 +1,5 @@
+"""Definitions of data types and other validations to apply to each data set."""
+
 import decimal as D
 
 from pandas_schema import Column, Schema
