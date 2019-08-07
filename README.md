@@ -23,7 +23,7 @@ make init-dev
 
 ## Module diagram
 
-![Packages diagram](docs/packages.jpg)
+![Packages diagram](docs/packages.png)
 
 ## Misc
 
