@@ -22,7 +22,7 @@ def test_apply():
     assert valid_df.shape[0] == 1
 
     # and we flag errors
-    assert errors_df.shape[0] == 2
+    assert errors_df.shape[0] == 3
 
     # range errors
     assert errors_df.at[1, 'row'] == 2
@@ -35,3 +35,9 @@ def test_apply():
     assert errors_df.at[0, 'field'] == 'b'
     assert errors_df.at[0, 'reason'] == 'is not a valid singular'
     assert errors_df.at[0, 'value'] == 'words'
+
+    # lookup errors
+    assert errors_df.at[2, 'row'] == 3
+    assert errors_df.at[2, 'field'] == 'c'
+    assert errors_df.at[2, 'reason'] == "cannot be converted to type <class 'decimal.Decimal'>"
+    assert errors_df.at[2, 'value'] == 'wolf'

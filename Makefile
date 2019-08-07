@@ -14,7 +14,7 @@ analyze:
 	pylint file_processing_pipeline
 
 test: FORCE analyze
-	python -m pytest -s -p no:cacheprovider --cov=file_processing_pipeline test --cov-fail-under=100 --basetemp=./tmp/
+	python -m pytest -x -s -p no:cacheprovider --cov-report term-missing --cov=file_processing_pipeline test --cov-fail-under=100 --basetemp=./tmp/
 
 build: FORCE
 	python setup.py bdist_wheel

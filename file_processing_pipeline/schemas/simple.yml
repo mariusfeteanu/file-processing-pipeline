@@ -3,13 +3,13 @@ schema:
   fields:
     - name: a
       type: int64
-      validation:
+      validations:
         - InRangeValidation:
             min: 0
             max: 14
     - name: b
       type: str
-      validation:
+      validations:
         - reference: singular
     - name: c
       type: decimal

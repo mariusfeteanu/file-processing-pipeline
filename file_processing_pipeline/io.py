@@ -13,7 +13,7 @@ def load_csv(filepath_or_buffer):
 
 
 def load_excel(io, sheet_name):
-    return pd.read_excel(io, sheet_name)
+    return pd.read_excel(io, sheet_name, dtype=str)
 
 
 def __ensure_dir_exists(file_name):

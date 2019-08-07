@@ -15,7 +15,7 @@ def test_load_csv():
     assert df['a'].dtype.name == 'object'
 
     # make sure we load all rows
-    assert df.shape[0] == 3
+    assert df.shape[0] == 4
 
     # make df we handle unicode
     assert df.at[2, 'b'] == 'Éclair'

@@ -1,0 +1,33 @@
+schema:
+  name: end_of_day
+  fields:
+    - name: open
+      type: decimal
+      nullable: False
+    - name: high
+      type: decimal
+    - name: low
+      type: decimal
+    - name: close
+      type: decimal
+    - name: volume
+      type: decimal
+    - name: "P/E"
+      type: decimal
+    - name: EPS
+      type: decimal
+    - name: currency_code
+      type: str
+      nullable: False
+      validations:
+        - reference: currency_code
+    - name: country_code
+      type: str
+      nullable: False
+      validations:
+        - reference: country_code
+    - name: company_source_id
+      type: str
+      nullable: False
+      validations:
+        - reference: company_source_id
