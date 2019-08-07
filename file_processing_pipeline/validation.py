@@ -20,15 +20,15 @@ def validate(df, schema_name, reference_sets):
     valid_df = df.drop(df.index[error_index_labels])
 
     # apply pandas data types to valid ones
-    valid_df = __apply_pandas_data_type(valid_df, schema.pandas_data_types)
+    valid_df = apply_pandas_data_types(valid_df, schema.pandas_data_types)
 
     # Create a data frame containing the errors, reasons etc.
-    errors_df = __get_errors_df(errors)
+    errors_df = get_errors_df(errors)
 
     return valid_df, errors_df
 
 
-def __apply_pandas_data_type(df, pandas_data_types):
+def apply_pandas_data_types(df, pandas_data_types):
     # apply pandas native data type
     native_data_types = {field_name: (data_type if data_type != 'decimal' else 'object')
                          for field_name, data_type
@@ -47,7 +47,7 @@ def __apply_pandas_data_type(df, pandas_data_types):
     return df
 
 
-def __get_errors_df(errors):
+def get_errors_df(errors):
     error_header = ['row', 'field', 'value', 'reason']
     if not errors:
         return pd.DataFrame(columns=error_header)
