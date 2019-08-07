@@ -1,13 +1,13 @@
 import pandas as pd
 
-from file_processing_pipeline import validation
+from file_processing_pipeline.validation import validate
 
 
 def transform_end_of_day(end_of_day_raw,
                          currency_code_raw,
                          country_code_raw,
                          company_source_id_raw):
-    valid_eod, errors_eod = validation.apply(
+    valid_eod, errors_eod = validate(
         end_of_day_raw,
         schema_name='end_of_day',
         reference_sets={

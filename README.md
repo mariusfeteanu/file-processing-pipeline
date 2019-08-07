@@ -5,6 +5,10 @@
 
 These probably already exist on your machine, so don't reinstall unless needed.
 
+#### Optional
+
+- For generating module diagrams: [graphiz](https://graphviz.gitlab.io/download/)
+
 ## Development/Test setup
 
 Make a virtual environment:
@@ -16,6 +20,10 @@ Install dependencies for development and run time:
 ```bash
 make init-dev
 ```
+
+## Module diagram
+
+![Packages diagram](docs/packages.jpg)
 
 ## Misc
 

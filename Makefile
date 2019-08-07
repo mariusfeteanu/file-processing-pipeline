@@ -29,3 +29,8 @@ clean:
 	rm -rf ./build/
 	rm -rf ./file_processing_pipeline.egg-info/
 	rm -rf ./dist/
+
+diagram:
+	pyreverse -o png file_processing_pipeline
+	rm classes.png
+	mv packages.png docs/

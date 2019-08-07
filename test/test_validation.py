@@ -1,12 +1,12 @@
 import decimal as D
 
-from file_processing_pipeline.validation import apply
+from file_processing_pipeline.validation import validate
 from file_processing_pipeline.io import load_csv
 
 
 def test_apply():
     df = load_csv('test/resources/simple.csv')
-    valid_df, errors_df = apply(df, 'simple', {'singular': ('word', 'Éclair')})
+    valid_df, errors_df = validate(df, 'simple', {'singular': ('word', 'Éclair')})
     assert list(valid_df.columns) == ['a', 'b', 'c']
 
     # make sure the correct type were set

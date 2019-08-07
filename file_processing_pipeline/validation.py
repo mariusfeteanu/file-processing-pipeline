@@ -5,7 +5,7 @@ import pandas as pd
 from file_processing_pipeline.schema import load_schema
 
 
-def apply(df, schema_name, reference_sets):
+def validate(df, schema_name, reference_sets):
     """
     Applies a schema to a data frame. Returns two data frames:
         - one with valid rows
