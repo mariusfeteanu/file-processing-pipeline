@@ -29,6 +29,7 @@ clean:
 	rm -rf ./build/
 	rm -rf ./file_processing_pipeline.egg-info/
 	rm -rf ./dist/
+	rm -rf ./test/resources/output_root/
 
 diagram:
 	pyreverse -o png file_processing_pipeline
