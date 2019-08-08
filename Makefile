@@ -13,6 +13,7 @@ analyze:
 	flake8 file_processing_pipeline
 	pylint file_processing_pipeline
 
+test: export PYTHONDONTWRITEBYTECODE = 1
 test: FORCE analyze
 	rm -rf ./test/resources/output_root/
 	python -m pytest -x -s -p no:cacheprovider --cov-report term-missing --cov=file_processing_pipeline test --cov-fail-under=100 --basetemp=./tmp/
