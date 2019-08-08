@@ -1,4 +1,5 @@
 test/resources/output_root/
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

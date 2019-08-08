@@ -106,6 +106,33 @@ def test_process_end_of_day_no_errors():
     type(valid.at[0, 'high']) == D.Decimal
 
 
+@pytest.mark.run(order=400)
+def test_process_end_of_day_empty_with_header():
+    test_case = 'empty_with_header'
+    process_end_of_day(f'{INPUT_ROOT}/{test_case}',
+                       REFERENCE_ROOT,
+                       f'{OUTPUT_ROOT}/{test_case}',
+                       file_type=CSV)
+
+
+    assert not isfile(get_errors_root(test_case))
+    valid = pd.read_parquet(get_valid_output_root(test_case))
+
+    assert valid.shape[0] == 0
+
+    assert list(valid.columns) == ['open',
+                                   'high',
+                                   'low',
+                                   'close',
+                                   'volume',
+                                   'P/E',
+                                   'EPS',
+                                   'currency_code',
+                                   'country_code',
+                                   'company_source_id',
+                                   'central_company_id']
+
+
 @pytest.mark.skip(reason="slow (20sec), enable if curious")
 @pytest.mark.run(order=400)
 def test_process_end_of_day_big_csv():
