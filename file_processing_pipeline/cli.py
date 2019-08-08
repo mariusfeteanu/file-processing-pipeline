@@ -13,7 +13,8 @@ from file_processing_pipeline.process import process_end_of_day, CSV
               help="The directory containing the dataset, or the excel workbook (not just dir).",
               required=True)
 @click.option("-r", "--reference-root",
-              help="The directory containing the reference data, or the excel workbook (not just dir).",
+              help="The directory containing the reference data,"
+                   " or the excel workbook (not just dir).",
               required=True)
 @click.option("-o", "--output-root",
               help="The directory where to output the data.",
