@@ -46,4 +46,5 @@ def process_end_of_day(input_path_root,
 
     save_parquet(valid_eod, f'{output_path_root}/valid/{EOD_FILE_NAME}.parquet.snappy')
     save_csv(valid_eod, f'{output_path_root}/debug/{EOD_FILE_NAME}.csv')
-    save_csv(errors_eod, f'{output_path_root}/errors/{EOD_FILE_NAME}.csv')
+    if errors_eod.shape[0] > 0:
+        save_csv(errors_eod, f'{output_path_root}/errors/{EOD_FILE_NAME}.csv')
