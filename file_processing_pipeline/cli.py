@@ -1,7 +1,8 @@
 """A command line interface to processes files."""
 import click
 
-from file_processing_pipeline.process import process_end_of_day, CSV
+from file_processing_pipeline.process import process_end_of_day
+from file_processing_pipeline.io import CSV
 
 
 @click.command()

@@ -4,7 +4,8 @@ import decimal as D
 import pytest
 import pandas as pd
 
-from file_processing_pipeline.process import process_end_of_day, CSV, EXCEL
+from file_processing_pipeline.process import process_end_of_day
+from file_processing_pipeline.io import CSV, EXCEL
 
 
 INPUT_ROOT = 'test/resources/input_root'
